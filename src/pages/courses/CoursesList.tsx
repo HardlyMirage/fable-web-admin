@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Card } from '../../components/ui/card';
 import { Table } from '../../components/ui/table';
-import { Pagination } from '../../components/ui/pagination';
+import { PaginationWrapper as Pagination } from '../../components/ui/pagination';
 import apiClient from '../../lib/api-client';
 
 interface University {
@@ -69,7 +69,7 @@ const CoursesList: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Courses</h1>
-          <Button as={Link} to="/courses/new">Add Course</Button>
+          <Link to="/courses/new">Add Course</Link>
         </div>
         <Card>
           <div className="p-4">
@@ -91,7 +91,7 @@ const CoursesList: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Courses</h1>
-        <Button as={Link} to="/courses/new">Add Course</Button>
+        <Link to="/courses/new">Add Course</Link>
       </div>
       
       {error && (
@@ -154,17 +154,12 @@ const CoursesList: React.FC = () => {
                   </td>
                   <td>
                     <div className="flex space-x-2">
-                      <Button
-                        as={Link}
+                      <Link
                         to={`/courses/${course.id}`}
-                        variant="outline"
-                        size="sm"
                       >
                         Edit
-                      </Button>
+                      </Link>
                       <Button
-                        variant="danger"
-                        size="sm"
                         onClick={() => handleDelete(course.id)}
                       >
                         Delete

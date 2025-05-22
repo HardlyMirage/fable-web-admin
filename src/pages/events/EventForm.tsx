@@ -77,7 +77,7 @@ const EventForm: React.FC = () => {
           
           // Get the associated courses for this event
           if (eventData.courses && eventData.courses.length > 0) {
-            setSelectedCourses(eventData.courses.map(course => course.id));
+            setSelectedCourses(eventData.courses.map((course: Course) => course.id));
           }
         }
       } catch (err) {
@@ -140,7 +140,7 @@ const EventForm: React.FC = () => {
         // First, get current courses to determine what changed
         if (isEditMode) {
           const eventResponse = await apiClient.get(`/events/${eventId}`);
-          const currentCourseIds = eventResponse.data.courses?.map(c => c.id) || [];
+          const currentCourseIds = eventResponse.data.courses?.map((c: Course) => c.id) || [];
           
           // Add new associations
           for (const courseId of selectedCourses) {

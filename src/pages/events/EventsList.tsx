@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import { Card } from '../../components/ui/card';
 import { Table } from '../../components/ui/table';
-import { Pagination } from '../../components/ui/pagination';
+import { PaginationWrapper as Pagination } from '../../components/ui/pagination';
 import apiClient from '../../lib/api-client';
 
 interface Event {
@@ -71,7 +71,7 @@ const EventsList: React.FC = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Events</h1>
-          <Button as={Link} to="/events/new">Add Event</Button>
+          <Link to="/events/new">Add Event</Link>
         </div>
         <Card>
           <div className="p-4">
@@ -93,7 +93,7 @@ const EventsList: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Events</h1>
-        <Button as={Link} to="/events/new">Add Event</Button>
+        <Link to="/events/new">Add Event</Link>
       </div>
       
       {error && (
@@ -151,16 +151,12 @@ const EventsList: React.FC = () => {
                   </td>
                   <td>
                     <div className="flex space-x-2">
-                      <Button
-                        as={Link}
+                      <Link
                         to={`/events/${event.id}`}
-                        variant="outline"
-                        size="sm"
                       >
                         Edit
-                      </Button>
+                      </Link>
                       <Button
-                        variant="danger"
                         size="sm"
                         onClick={() => handleDelete(event.id)}
                       >
