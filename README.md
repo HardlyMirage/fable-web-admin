@@ -18,7 +18,18 @@ This is the admin web interface for the Fable platform. It provides a user inter
 pnpm install
 ```
 
-2. Start the development server:
+2. Set up environment variables:
+
+Create a `.env` file based on the `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Adjust the values in the `.env` file as needed:
+- `VITE_API_URL`: URL of the backend API server
+
+3. Start the development server:
 
 ```bash
 pnpm run dev
